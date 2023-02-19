@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_employee_ext,employee_ext.employee_ext,model_employee_ext,base.group_user,1,1,1,1
+access_employee_ext_wizard,employee_ext_wizard.employee_ext_wizard,model_employee_ext_wizard,base.group_user,1,1,1,1
+access_report_employee_ext_report_data,report_employee_ext_report_data.report_employee_ext_report_data,model_report_employee_ext_report_data,base.group_user,1,1,1,1
+

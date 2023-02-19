@@ -1,0 +1,123 @@
+<odoo>
+    <data>
+
+        <record id="employee_ext_pdf_report" model="ir.actions.report">
+            <field name="name">Employee Record Report</field>
+            <field name="model">employee.ext.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">employee_ext.report_data</field>
+            <field name="report_file">employee_ext.report_data</field>
+            <field name="binding_model_id" ref="model_employee_ext_wizard"/>
+
+        </record>
+
+        <template id="report_data">
+            <t t-call="web.html_container">
+                <div class="page">
+
+                    <t t-call="web.internal_layout">
+                        <div class="page">
+                            <head>
+                                <style>
+                                    table, th,td{
+                                    border: 3px solid black;
+                                    border-collapse: collapse;
+                                    }
+                                    th,td {
+                                    padding: 10px;
+                                    text-align: left;
+                                </style>
+                            </head>
+                            <h2>Employee Record Report</h2>
+                            <p>Employee Report of Attendance leaves Expense</p>
+                            <table style="width:100%">
+                                <tr>
+                                    <th class="text-center">ID:</th>
+                                    <th class="text-center">Employee Name:</th>
+                                    <th class="text-center">Department:</th>
+                                    <th class="text-center">Present</th>
+                                    <th class="text-center">off Days</th>
+                                    <th class="text-center">Leaves</th>
+                                    <th class="text-center">Expense</th>
+                                </tr>
+                                <tr t-foreach="form.get('attendances')" t-as="a">
+                                    <td>
+                                        <span t-esc="a.get('id')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="a.get('name')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="a.get('department')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="a.get('present')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="a.get('absent')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="a.get('leave')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="a.get('expense')"/>
+                                    </td>
+
+                                </tr>
+                            </table>
+                            <br></br>
+                            <br></br>
+                            <h2>Customer Report</h2>
+                            <p>Customer Report of leads sale order purchase</p>
+                            <br/>
+                            <table style="width:100%">
+                                <tr>
+                                    <th class="text-center" style="width:10%">Customer ID</th>
+                                    <th class="text-center" style="width:10%">customer Name</th>
+                                    <th class="text-center">Number of Leads</th>
+                                    <th class="text-center">Total sale order</th>
+                                    <th class="text-center">Total sale invoice</th>
+                                    <th class="text-center">Total Purchase order</th>
+                                    <th class="text-center">Total purchase Invoice</th>
+                                    <th class="text-center">Total sale Credit note</th>
+                                    <th class="text-center">Total purchase Credit note</th>
+                                </tr>
+                                <tr t-foreach="customer_form.get('customers')" t-as="c">
+                                    <td>
+                                        <span t-esc="c.get('id')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="c.get('name')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="c.get('leads')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="c.get('sale_order')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="c.get('invoice')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="c.get('purchase')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="c.get('p_invoice')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="c.get('s_credit')"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="c.get('p_credit')"/>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

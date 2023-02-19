@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="employee_ext_excel_report" model="ir.actions.report">
+            <field name="name">Employee Record Report excel</field>
+            <field name="model">employee.ext.wizard</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">employee_ext.employee_xlsx</field>
+            <field name="report_file">employee_ext.employee_xlsx</field>
+             <field name="binding_type">report</field>
+            <field name="binding_model_id" ref="model_employee_ext_wizard"/>
+        </record>
+    </data>
+</odoo>
+
